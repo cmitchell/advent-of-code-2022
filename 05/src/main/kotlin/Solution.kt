@@ -1,6 +1,5 @@
 import java.io.File;
 import java.util.Stack
-import java.util.Queue
 
 fun main(args : Array<String>) {
 
@@ -59,13 +58,11 @@ private fun solution1(stacks: List<Stack<Char>>, moves: List<Triple<Int, Int, In
         }
     }  
 
-    var finalCrates = ""
-    stacks.filter{
+    return stacks.filter {
         !it.isEmpty()
-    }.forEach{ 
-        finalCrates += it.last().toString() 
-    }
-    return finalCrates
+    }.map { 
+        it.last().toString() 
+    }.joinToString("")
 }
     
 private fun solution2(lists: MutableList<MutableList<Char>>, moves: List<Triple<Int, Int, Int>>) :String {
@@ -75,12 +72,10 @@ private fun solution2(lists: MutableList<MutableList<Char>>, moves: List<Triple<
         lists.set(move.second -1, fromList.dropLast(move.first).toMutableList())
     }
 
-    var finalCrates = ""
-    lists.filter{
+    return lists.filter {
         !it.isEmpty()
-    }.forEach{ 
-        finalCrates += it.last().toString() 
-    }
-    return finalCrates
+    }.map { 
+        it.last().toString() 
+    }.joinToString("")
 }
 
